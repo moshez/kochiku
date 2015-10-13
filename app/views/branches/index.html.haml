@@ -6,4 +6,5 @@
   %ul
     - @branches.each do |branch|
       %li.build-info{:class => ("bold" if branch.convergence?)}
-        = link_to(branch.name, repository_branch_path(branch.repository, branch))
+        - if branch.name
+          = link_to(branch.name, repository_branch_path(branch.repository, branch))
